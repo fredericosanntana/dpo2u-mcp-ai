@@ -15,11 +15,17 @@ dpo2u-mcp-ai/
 │   ├── web-researcher/                         # Pesquisa na web
 │   ├── task-manager/                           # Gestao de tarefas
 │   ├── github-assistant/                       # Operacoes GitHub
-│   └── code-reviewer/                          # Revisao de codigo
+│   ├── code-reviewer/                          # Revisao de codigo
+│   ├── brainstorming/                          # Sessoes de brainstorming
+│   ├── decision-maker/                         # Tomada de decisao
+│   ├── problem-solver/                         # Resolucao de problemas
+│   └── project-kickoff/                        # Inicio de projetos
 └── config/                                      # Configuracoes de exemplo
 ```
 
 ## Skills Disponiveis
+
+### Skills Tecnicas
 
 | Skill | Descricao | Baseado em |
 |-------|-----------|------------|
@@ -30,6 +36,15 @@ dpo2u-mcp-ai/
 | `task-manager` | Gerencia lista de tarefas | Claude Code TodoWrite |
 | `github-assistant` | Operacoes GitHub via gh CLI | Claude Code GitHub integration |
 | `code-reviewer` | Revisa codigo | Claude Code review capabilities |
+
+### Skills Cognitivas
+
+| Skill | Descricao | Metodologias |
+|-------|-----------|--------------|
+| `brainstorming` | Gera ideias criativas | SCAMPER, Six Hats, Mind Map, HMW |
+| `decision-maker` | Auxilia decisoes | RICE, Matriz, Pre-mortem, 10/10/10 |
+| `problem-solver` | Resolve problemas | 5 Whys, RCA, PDCA, Fishbone |
+| `project-kickoff` | Inicia projetos | Templates, RACI, ADRs |
 
 ## Instalacao
 

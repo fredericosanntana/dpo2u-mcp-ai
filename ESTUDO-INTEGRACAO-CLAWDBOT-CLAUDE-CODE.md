@@ -12,11 +12,62 @@ Otimizar o uso do Clawdbot integrando as capacidades de agentes, skills e comand
 
 | Componente | Descrição |
 |------------|-----------|
-| **Gateway** | Control plane WebSocket local |
-| **Skills** | Arquivos SKILL.md em `~/clawd/skills/<skill>/` |
+| **Gateway** | Control plane WebSocket na porta 18789 |
+| **Workspace** | `~/clawd` - memoria, logs, skills customizadas |
+| **Config** | `~/.clawdbot/clawdbot.json` - configuracao principal |
+| **Sessions** | `~/.clawdbot/agents/main/sessions/` - historico |
+| **Skills** | Configuradas em `clawdbot.json` ou `~/clawd/skills/` |
 | **Agentes** | Runtime Pi com RPC mode e tool streaming |
 | **Canais** | WhatsApp, Telegram, Discord, Slack, Signal, etc. |
-| **Comandos** | `/status`, `/new`, `/think`, `/verbose`, `/usage` |
+| **Comandos** | `/status`, `/new`, `/think`, `/verbose`, `/usage`, `/models` |
+| **Memoria** | `MEMORY.md` (longo prazo) + `memory/YYYY-MM-DD.md` (diario) |
+| **Semantic Search** | Embeddings para busca de contexto historico |
+
+#### Arquivos do Workspace (`~/clawd`)
+
+| Arquivo | Funcao |
+|---------|--------|
+| `MEMORY.md` | Fatos de longo prazo sobre o usuario |
+| `AGENTS.md` | Instrucoes operacionais do agente |
+| `SOUL.md` | Persona e personalidade |
+| `TOOLS.md` | Notas sobre ferramentas |
+| `BOOTSTRAP.md` | Ritual de primeira execucao |
+| `USER.md` | Perfil do usuario |
+| `memory/` | Logs diarios de conversas |
+
+#### Configuracao de Skills (`~/.clawdbot/clawdbot.json`)
+
+```json
+{
+  "skills": {
+    "entries": {
+      "web-search": { "enabled": true },
+      "github": {
+        "enabled": true,
+        "env": { "GITHUB_TOKEN": "token" }
+      }
+    }
+  }
+}
+```
+
+#### Semantic Search (Memoria de Longo Prazo)
+
+```json
+{
+  "agents": {
+    "defaults": {
+      "memorySearch": {
+        "provider": "openai",
+        "model": "text-embedding-3-small",
+        "remote": {
+          "apiKey": "your_openai_key"
+        }
+      }
+    }
+  }
+}
+```
 
 ### 1.2 Arquitetura Claude Code
 
