@@ -1,0 +1,36 @@
+{
+  "agent": {
+    "model": "anthropic/claude-opus-4-5",
+    "thinking": "high"
+  },
+  "skills": {
+    "enabled": [
+      "code-explorer",
+      "task-planner",
+      "shell-executor",
+      "web-researcher",
+      "task-manager",
+      "github-assistant",
+      "code-reviewer"
+    ]
+  },
+  "security": {
+    "allowShellCommands": true,
+    "requireConfirmation": [
+      "rm",
+      "git push",
+      "git commit",
+      "npm publish"
+    ],
+    "blockedCommands": [
+      "rm -rf /",
+      "dd if=",
+      "mkfs"
+    ]
+  },
+  "features": {
+    "taskTracking": true,
+    "webSearch": true,
+    "codeReview": true
+  }
+}
