@@ -1,106 +1,83 @@
-# Clawdbot + Claude Code Integration
+# DPO2U MCP AI
 
-Este repositorio contem skills, configuracoes e documentacao para otimizar o uso do Clawdbot integrando capacidades do Claude Code.
+**Model Context Protocol server** for LGPD compliance AI agents — provides standardized tools for querying on-chain compliance status, generating privacy documentation, and registering documents on IPFS.
 
-## Estrutura do Projeto
+## Overview
+
+This repository contains the MCP server configuration, AI agent skills, and integration documentation for the DPO2U compliance protocol. It enables any AI agent (Claude, ChatGPT, or custom frameworks) to interact with the Midnight blockchain and DPO2U infrastructure via standardized tool calls.
+
+## Skills
+
+### Technical Skills
+
+| Skill | Description | Based On |
+|-------|-------------|----------|
+| `code-explorer` | Codebase exploration and analysis | Claude Code Explore agent |
+| `task-planner` | Complex implementation planning | Claude Code Plan agent |
+| `shell-executor` | Safe command execution | Claude Code Bash tool |
+| `web-researcher` | Web information retrieval | Claude Code WebSearch/WebFetch |
+| `task-manager` | Task list management | Claude Code task tracking |
+| `github-assistant` | GitHub operations via `gh` CLI | Claude Code GitHub integration |
+| `code-reviewer` | Code review and analysis | Claude Code review capabilities |
+
+### Cognitive Skills
+
+| Skill | Description | Methodologies |
+|-------|-------------|---------------|
+| `brainstorming` | Creative idea generation | SCAMPER, Six Hats, Mind Map, HMW |
+| `decision-maker` | Structured decision support | RICE, Decision Matrix, Pre-mortem, 10/10/10 |
+| `problem-solver` | Root cause analysis | 5 Whys, RCA, PDCA, Fishbone |
+| `project-kickoff` | Project initialization | Templates, RACI, ADRs |
+
+## Repository Structure
 
 ```
 dpo2u-mcp-ai/
-├── README.md                                    # Este arquivo
-├── ESTUDO-INTEGRACAO-CLAWDBOT-CLAUDE-CODE.md   # Estudo completo de integracao
-├── skills/                                      # Skills prontas para Clawdbot
-│   ├── code-explorer/                          # Exploracao de codigo
-│   ├── task-planner/                           # Planejamento de tarefas
-│   ├── shell-executor/                         # Execucao de comandos
-│   ├── web-researcher/                         # Pesquisa na web
-│   ├── task-manager/                           # Gestao de tarefas
-│   ├── github-assistant/                       # Operacoes GitHub
-│   ├── code-reviewer/                          # Revisao de codigo
-│   ├── brainstorming/                          # Sessoes de brainstorming
-│   ├── decision-maker/                         # Tomada de decisao
-│   ├── problem-solver/                         # Resolucao de problemas
-│   └── project-kickoff/                        # Inicio de projetos
-└── config/                                      # Configuracoes de exemplo
+├── skills/                    # Ready-to-use agent skills
+│   ├── code-explorer/
+│   ├── task-planner/
+│   ├── shell-executor/
+│   ├── web-researcher/
+│   ├── task-manager/
+│   ├── github-assistant/
+│   ├── code-reviewer/
+│   ├── brainstorming/
+│   ├── decision-maker/
+│   ├── problem-solver/
+│   └── project-kickoff/
+├── config/                    # Configuration examples
+└── ESTUDO-INTEGRACAO-*.md     # Integration study
 ```
 
-## Skills Disponiveis
-
-### Skills Tecnicas
-
-| Skill | Descricao | Baseado em |
-|-------|-----------|------------|
-| `code-explorer` | Explora e analisa codebases | Claude Code Explore agent |
-| `task-planner` | Planeja implementacoes complexas | Claude Code Plan agent |
-| `shell-executor` | Executa comandos com seguranca | Claude Code Bash tool |
-| `web-researcher` | Pesquisa informacoes na web | Claude Code WebSearch/WebFetch |
-| `task-manager` | Gerencia lista de tarefas | Claude Code TodoWrite |
-| `github-assistant` | Operacoes GitHub via gh CLI | Claude Code GitHub integration |
-| `code-reviewer` | Revisa codigo | Claude Code review capabilities |
-
-### Skills Cognitivas
-
-| Skill | Descricao | Metodologias |
-|-------|-----------|--------------|
-| `brainstorming` | Gera ideias criativas | SCAMPER, Six Hats, Mind Map, HMW |
-| `decision-maker` | Auxilia decisoes | RICE, Matriz, Pre-mortem, 10/10/10 |
-| `problem-solver` | Resolve problemas | 5 Whys, RCA, PDCA, Fishbone |
-| `project-kickoff` | Inicia projetos | Templates, RACI, ADRs |
-
-## Instalacao
-
-### 1. Copiar Skills para Clawdbot
+## Installation
 
 ```bash
-# Copiar todas as skills
+# Copy all skills
 cp -r skills/* ~/clawd/skills/
 
-# Ou copiar skill especifica
+# Or copy a specific skill
 cp -r skills/code-explorer ~/clawd/skills/
 ```
 
-### 2. Verificar Instalacao
+## Usage
 
-```bash
-ls ~/clawd/skills/
-```
-
-### 3. Reiniciar Clawdbot
-
-Reinicie o Clawdbot para carregar as novas skills.
-
-## Uso
-
-### Invocar Skills
-
-As skills podem ser invocadas automaticamente pelo Clawdbot quando o contexto for apropriado, ou manualmente:
+Skills are invoked automatically based on context or manually:
 
 ```
-Explore este projeto e me de uma visao geral da arquitetura
+Explore this project and give me an architecture overview
 ```
 
 ```
-Planeje a implementacao de um sistema de autenticacao
+Plan the implementation of an authentication system
 ```
 
 ```
-Execute git status e mostre o estado do repositorio
+Run git status and show the repository state
 ```
 
-### Comandos Recomendados
+## Configuration
 
-Para usar com as skills:
-
-```
-/think high          # Para tarefas complexas
-/verbose on          # Para debug
-/status              # Ver contexto atual
-```
-
-## Configuracao Recomendada
-
-### Modelo
-
-Use Claude Opus para melhor performance:
+Recommended model for best performance:
 
 ```json
 {
@@ -110,26 +87,11 @@ Use Claude Opus para melhor performance:
 }
 ```
 
-### Think Level
+## Documentation
 
-Para tarefas de codigo:
-```
-/think high
-```
-
-## Documentacao
-
-- [Estudo Completo de Integracao](./ESTUDO-INTEGRACAO-CLAWDBOT-CLAUDE-CODE.md)
-- [Clawdbot GitHub](https://github.com/clawdbot/clawdbot)
+- [Integration Study](./ESTUDO-INTEGRACAO-CLAWDBOT-CLAUDE-CODE.md)
 - [Claude Code Docs](https://docs.anthropic.com/claude-code)
 
-## Contribuindo
-
-1. Fork este repositorio
-2. Crie uma branch para sua feature
-3. Faca suas mudancas
-4. Abra um Pull Request
-
-## Licenca
+## License
 
 MIT
